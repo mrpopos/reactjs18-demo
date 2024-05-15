@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react"
+import { useDispatch } from 'react-redux';
+import { increment, decrement } from '../../store/modules/counterStore';
 
 function UseEffect1() {
+  const dispatch = useDispatch()
   const [count, setCount] = useState(0)
   // useEffect(() => {
   //   console.log('无参副作用函数执行')
@@ -20,6 +23,8 @@ function UseEffect1() {
 
   return (
     <div>
+      <button onClick={() => dispatch(increment())}>store counter 递增</button>
+      <button onClick={() => dispatch(decrement())}>store counter 递减</button>
       无参副作用函数 {count}
       <button onClick={() => setCount(count+1)}>count++</button>
     </div>
