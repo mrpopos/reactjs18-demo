@@ -1,0 +1,28 @@
+{
+  "comments": [
+    {
+      "id": 1000,
+      "uid": 1,
+      "uname": "jack",
+      "content": "我是一个粉刷匠",
+      "ctime": "2023-12-12",
+      "like": 620
+    },
+    {
+      "id": 1001,
+      "uid": 2,
+      "uname": "jerry",
+      "content": "我来自德玛西亚",
+      "ctime": "2023-10-03",
+      "like": 222
+    },
+    {
+      "id": 1002,
+      "uid": 3,
+      "uname": "bkaclin",
+      "content": "菊花信无敌",
+      "ctime": "2024-03-12",
+      "like": 100
+    }
+  ]
+}

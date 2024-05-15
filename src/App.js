@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useContext, useState } from "react";
 
-function App() {
+import UseEffect from './views/useEffect/index';
+import UseEffect1 from './views/useEffect/index1';
+import SelfHook from './views/useEffect/selfHook';
+import Comment from './views/comment/index';
+
+const Ctx = createContext()
+
+function A() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      我是A组件
+      <B />
+    </div>
+  );
+}
+
+function B() {
+  const msg = useContext(Ctx)
+  return (
+    <div className="App">
+      我是B组件, {msg}
+    </div>
+  );
+}
+
+function App() {
+  const [show, setShow] = useState(true)
+  const msg = '状态提升信息'
+  return (
+    <div className="App">
+      我是app组件
+      <Ctx.Provider value={msg}>
+        <A />
+      </Ctx.Provider>
+      <hr/>
+      <UseEffect />
+      <hr/>
+      <button onClick={() => setShow(false)}>卸载UseEffect1组件</button>
+      {show && <UseEffect1/>}
+      <hr/>
+      <SelfHook />
+      <hr/>
+      <Comment />
     </div>
   );
 }
