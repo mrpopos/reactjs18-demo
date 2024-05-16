@@ -3,6 +3,7 @@ import { createContext, useContext, useState } from "react";
 import UseEffect from './views/useEffect/index';
 import UseEffect1 from './views/useEffect/index1';
 import SelfHook from './views/useEffect/selfHook';
+import AsyncStore from './views/useEffect/asyncStore';
 import Comment from './views/comment/index';
 
 const Ctx = createContext()
@@ -43,6 +44,8 @@ function App() {
       <SelfHook />
       <hr/>
       <Comment />
+      <hr/>
+      <AsyncStore/>
     </div>
   );
 }

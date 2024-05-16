@@ -25,6 +25,8 @@ function UseEffect1() {
     <div>
       <button onClick={() => dispatch(increment())}>store counter 递增</button>
       <button onClick={() => dispatch(decrement())}>store counter 递减</button>
+      <button onClick={() => dispatch(decrement(10))}>store counter +10</button>
+      <button onClick={() => dispatch(decrement(-20))}>store counter -20</button>
       无参副作用函数 {count}
       <button onClick={() => setCount(count+1)}>count++</button>
     </div>
