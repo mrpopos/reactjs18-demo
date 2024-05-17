@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from "react";
 
-import UseEffect from './views/useEffect/index';
-import UseEffect1 from './views/useEffect/index1';
-import SelfHook from './views/useEffect/selfHook';
-import AsyncStore from './views/useEffect/asyncStore';
-import Comment from './views/comment/index';
+import UseEffect from './page/useEffect/index';
+import UseEffect1 from './page/useEffect/index1';
+import SelfHook from './page/useEffect/selfHook';
+import AsyncStore from './page/useEffect/asyncStore';
+import Comment from './page/comment/index';
+import { Link, useNavigate } from "react-router-dom";
 
 const Ctx = createContext()
 
@@ -29,6 +30,7 @@ function B() {
 function App() {
   const [show, setShow] = useState(true)
   const msg = '状态提升信息'
+  const navigate = useNavigate()
   return (
     <div className="App">
       我是app组件
@@ -46,6 +48,14 @@ function App() {
       <Comment />
       <hr/>
       <AsyncStore/>
+      <hr/>
+      <h5>声明式导航</h5>
+      <Link to="/login">login</Link>
+      <br/>
+      <Link to="/about/abcd">about</Link>
+      <h5>编程式导航</h5>
+      <p onClick={() => navigate('/login?username=root&password=123456')}>login</p>
+      <p onClick={() => navigate('/about/email')}>about</p>
     </div>
   );
 }
